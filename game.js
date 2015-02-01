@@ -1,5 +1,9 @@
 function start(){
-	intro();
+	if(playing == false){
+		intro();
+	}else{
+		gameStart();
+	}
 }
 
 function intro(){
@@ -11,12 +15,26 @@ function intro(){
 function init(){
 	clear();
 	addQueue("Date: 1 September 1939", "b");
-	addQueue("Alright Sergeant", "h1");
-	addQueue("Europe is in war, we'd better be prepared. Nazi germany has invaded Poland.", "p");
+	addQueue("Alright Sergeant,", "h1");
+	addQueue("Europe is in war, Nazi Germany has invaded Poland. We'd better be prepared.", "p");
 
 	addQueue("Start defending your country.", 'a onclick="gameStart()" ');
 }
 
 function gameStart(){
-	
+	clear();
+
+	playing = true;
+	gameSave();
+
+	addQueue("Let's get started.", "b");
+	initButtons();
+}
+
+function initButtons(){
+	$("#app").append("<div id='buttons' class='bottom'></div>");
+	$("#buttons").append("<button>Recruit</button>");
+	$("#buttons").append("<button>Develop</button>");
+	$("#buttons").append("<button>Money</button>");
+	$("#buttons").append("<button>War</button>");
 }

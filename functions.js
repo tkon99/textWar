@@ -1,6 +1,8 @@
 var messageList = [];
 var messageQueue = [];
 
+var playing = false;
+
 $('img').on('dragstart', function(event) { event.preventDefault(); });
 
 function makeid(){
@@ -14,11 +16,17 @@ function makeid(){
 }
 
 $(document).ready(function(){
+	if(localStorage.getItem("save") == undefined){
+		gameSave();
+	}
+
+	gameLoad();
+	
 	console.log('textWar starting');
-	start();
 	setTimeout(function(){
 		$("#app").html('');
 		$("#app").append("<div id='messages'></div>");
+		start();
 	}, 2000);
 	setTimeout(queuer, 2000);
 });
@@ -71,4 +79,22 @@ function typeIt(container, text){
 	f();
 
 	return id;
+}
+
+function gameSave(){
+	var save = {
+		"playing": playing,
+		"some-other-save-item": false
+	}
+
+	var json = JSON.stringify(save);
+
+	localStorage.setItem("save", Base64.encode(json));
+}
+
+function gameLoad(){
+	var save = Base64.decode(localStorage.getItem("save"));
+	var json = JSON.parse(save);
+
+	playing = json.playing;
 }

@@ -36,6 +36,26 @@ a{
 	color: black;
 }
 
+.bottom{
+	position: absolute;
+	bottom: 3em;
+	height: 2em;
+}
+
+.bottom button{
+	height: 2em;
+	font-size: 2em;
+
+	background-color: white;
+	color: black;
+	border-width: 2px;
+	border-style: solid;
+	border-color: black;
+
+	margin-right: 10px;
+	margin-top: 10px;
+}
+
 ::-moz-selection { /* Code for Firefox */
     color: white;
     background: black;
@@ -44,4 +64,13 @@ a{
 ::selection {
     color: white; 
     background: black;
+}
+
+@media (max-width: 600px) {
+	.bottom button{
+		width: 45% !important;
+	}
+	.bottom{
+		bottom: 8em !important;
+	}
 }
