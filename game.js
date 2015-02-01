@@ -16,7 +16,7 @@ function init(){
 	clear();
 	addQueue("Date: 1 September 1939", "b");
 	addQueue("Alright Sergeant,", "h1");
-	addQueue("Europe is in war, Nazi Germany has invaded Poland. We'd better be prepared.", "p");
+	addQueue("Europe is at war, Nazi Germany has invaded Poland. We'd better be prepared.", "p");
 
 	addQueue("Start defending your country.", 'a onclick="gameStart()" ');
 }
