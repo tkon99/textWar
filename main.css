@@ -42,10 +42,7 @@ a{
 	height: 2em;
 }
 
-.bottom button{
-	height: 2em;
-	font-size: 2em;
-
+.bottom button, .mainModal button{
 	background-color: white;
 	color: black;
 	border-width: 2px;
@@ -54,6 +51,40 @@ a{
 
 	margin-right: 10px;
 	margin-top: 10px;
+}
+
+.bottom button{
+	height: 2em;
+	font-size: 2em;
+}
+
+.mainModal button{
+	height: 1.3em;
+	font-size: 1.3em;
+}
+
+.mainModal{
+	width: 30%;
+	min-height: 50px;
+	background-color: white;
+
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+
+	border-width: 5px;
+	border-style: double;
+}
+
+.right-header{
+	float: right;
+	display: inline-block;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+
+.mainModal h1{
+	display: inline-block;
 }
 
 ::-moz-selection { /* Code for Firefox */
@@ -72,5 +103,8 @@ a{
 	}
 	.bottom{
 		bottom: 8em !important;
+	}
+	.mainModal{
+		width: 75% !important;
 	}
 }

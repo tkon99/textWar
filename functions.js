@@ -2,8 +2,17 @@ var messageList = [];
 var messageQueue = [];
 
 var playing = false;
+var soldiers = 0;
+var dollars = 0;
 
 $('img').on('dragstart', function(event) { event.preventDefault(); });
+
+function spanPopulate(){
+	$(".soldiers").html(soldiers);
+	$(".dollars").html(dollars);
+
+	setTimeout(spanPopulate, 100);
+}
 
 function makeid(){
     var text = "";
@@ -21,6 +30,8 @@ $(document).ready(function(){
 	}
 
 	gameLoad();
+
+	spanPopulate();
 	
 	console.log('textWar starting');
 	setTimeout(function(){
@@ -84,7 +95,8 @@ function typeIt(container, text){
 function gameSave(){
 	var save = {
 		"playing": playing,
-		"some-other-save-item": false
+		"soldiers": soldiers,
+		"dollars": dollars
 	}
 
 	var json = JSON.stringify(save);
@@ -97,4 +109,6 @@ function gameLoad(){
 	var json = JSON.parse(save);
 
 	playing = json.playing;
+	soldiers = json.soldiers;
+	dollars = json.dollars;
 }
