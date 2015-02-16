@@ -2,13 +2,18 @@ var messageList = [];
 var messageQueue = [];
 
 var playing = false;
+
 var soldiers = 0;
+var tanks = 0;
+
 var dollars = 0;
 
 $('img').on('dragstart', function(event) { event.preventDefault(); });
 
 function spanPopulate(){
 	$(".soldiers").html(soldiers);
+	$(".tanks").html(tanks);
+
 	$(".dollars").html(dollars);
 
 	setTimeout(spanPopulate, 100);
@@ -96,6 +101,7 @@ function gameSave(){
 	var save = {
 		"playing": playing,
 		"soldiers": soldiers,
+		"tanks": tanks,
 		"dollars": dollars
 	}
 
@@ -109,6 +115,9 @@ function gameLoad(){
 	var json = JSON.parse(save);
 
 	playing = json.playing;
+
 	soldiers = json.soldiers;
+	tanks = json.tanks;
+
 	dollars = json.dollars;
 }

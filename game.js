@@ -1,3 +1,5 @@
+/* General */
+
 var modal;
 
 function start(){
@@ -77,7 +79,8 @@ function openModal(type){
 	switch (type) {
     	case "recruit":
     		modal.append("<h1>Recruit:</h1> <div class='right-header'>Balance: $ <span class='dollars'></span></div><br>");
-    		modal.append("<button>Soldier</button> <span class='soldiers'></span> soldiers.<br>");
+    		modal.append("<button onclick='addSoldier()'>Soldier</button> <span class='soldiers'></span> soldiers.<br>");
+    		modal.append("<button onclick='addTank()'>Tank</button> <span class='tanks'></span> tanks.<br>");
         	break;
     	case "develop":
     		modal.append("<h1>Develop:</h1> <div class='right-header'>Balance: $ <span class='dollars'></span></div><br>");
@@ -91,4 +94,37 @@ function openModal(type){
 	}
 
 	modal.trigger('openModal');
+}
+
+/* Unit Settings */
+/*
+
+cost: dollars first time
+factor: percentage increase per extra unit
+
+*/
+
+var units = {
+	"soldier":{
+		"cost": 500,
+		"factor": 0.2
+	},
+	"tank":{
+		"cost": 2300,
+		"factor": 0.5
+	}
+}
+
+/* Button Actions */
+function addSoldier(){
+	addUnit("soldier");
+}
+function addTank(){
+	addUnit("tank");
+}
+
+function addUnit(type){
+	var costs = (units[type].cost)+(units[type].factor * soldiers);
+
+	alert(costs);
 }
